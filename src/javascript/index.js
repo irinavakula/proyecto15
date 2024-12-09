@@ -12,7 +12,37 @@ $(document).ready(function() {
         "nombre": "de la Encarnación",
         "apellido": "No tanto"
     }];
+   
+    $("#boton").on("click", function(event) {
+        alert("Hello! Allert!");
+    })
 
+    $("#hide").on("click", function(event) {
+        if($("#mirage").is(':visible')) {
+            $("#mirage").hide();
+            $("#hide").text("Show");
+        } else {
+            $("#mirage").show();
+            $("#hide").text("Hide");
+
+            
+        }
+    })
+
+    $("#add").on("click", function(event) {
+        $("#button-array").append(
+            $("<button>")
+            .text("new")
+        )
+    })
+
+    const data = [
+        {day: "Monday", }
+    ]
+    
+    $("#remove").on("click", function(event) {
+        $("#button-array").children().last().remove();
+    })
 
     for (i = 0 ; i < solicitudes.length; i++ ) {
         $("#maestro").append(
@@ -30,6 +60,7 @@ $(document).ready(function() {
             $("#detalle").hide();
         } else {
             $("#detalle").show();
+            
 
             let solicitud = $(this).attr("id");
 
