@@ -37,8 +37,24 @@ $(document).ready(function() {
     })
 
     const data = [
-        {day: "Monday", }
-    ]
+        {day: "Monday", food: "Fruit", clacces: "Nothing"},
+        {day: "Tuesday", food: "Sandwich", classes: "Ballet"},
+        {day: "Wendnesday", food: "Fruit", classes: "Swimming"},
+        {day: "Thursday", food: "Sandwich", classes: "Ballet"},
+        {day: "Friday", food: "Fruit", classes: "Engl"}
+    ];
+    function createPivotTable(data) {
+        const pivot = {};
+        data.forEach(row => {
+            const { day, food, classes } = row;
+            const key = "${day}_${food}";
+            if (!pivot[key]) {
+            }    
+                pivot[key] = { day, food, classes};
+                pivot[key].classes += classes;
+        });
+    }
+
     
     $("#remove").on("click", function(event) {
         $("#button-array").children().last().remove();
